@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class trigger_event : MonoBehaviour
+public class TriggerEvent : MonoBehaviour
 {
-    public score_controller score_Controller;
+    public ScoreController score_Controller;
     public GameObject trigger_target;
 
     private void OnTriggerEnter2D(Collider2D other)

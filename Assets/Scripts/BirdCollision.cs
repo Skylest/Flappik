@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class bird_collision : MonoBehaviour
+public class BirdCollision : MonoBehaviour
 {
-    public menu_controller menuController;
+    public GameController menuController;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

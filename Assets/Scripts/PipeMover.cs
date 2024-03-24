@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class pipe_mover : MonoBehaviour
+public class PipeMover : MonoBehaviour
 
 {
     [SerializeField]
@@ -16,7 +16,7 @@ public class pipe_mover : MonoBehaviour
     private float y_max = -4f, y_min = -7.5f;
     private bool _isDead = false;
     private bool _isStart = false;
-    public menu_controller menuController;
+    public GameController menuController;
     private float[] pipe_start_pos = { 11f, 14f, 17f, 20f };
     
     // Start is called before the first frame update

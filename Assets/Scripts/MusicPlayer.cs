@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mus_controller : MonoBehaviour
+public class MusicPlayer : MonoBehaviour
 {
     private int is_mus_play = 1;
 

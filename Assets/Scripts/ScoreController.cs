@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class score_controller : MonoBehaviour
+public class ScoreController : MonoBehaviour
 {
     [SerializeField]
     private Text score, record;
 
     private string text_score_base = "Score: ", text_record_base = "Record: ";
     private int score_cnt = 0;
-    public menu_controller menuController;
+    public GameController menuController;
     private int record_saved = 0;
 
     void Start()

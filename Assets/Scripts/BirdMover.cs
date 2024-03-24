@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bird_move_controller : MonoBehaviour
+public class BirdMover : MonoBehaviour
 {
     public float jumpForce = 5f;             // Сила прыжка птицы
     private bool _isDead = false;             // Флаг, указывающий, мертва ли птица
     private bool _isStart = false;
     public GameObject bird;
-    public menu_controller menuController;
+    public GameController menuController;
     private bool isFalling = true;
     private Rigidbody2D birdRigidbody;
 

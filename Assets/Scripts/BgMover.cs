@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class bg_mover : MonoBehaviour
+public class BgMover : MonoBehaviour
 
 {
     [SerializeField]
@@ -15,7 +15,7 @@ public class bg_mover : MonoBehaviour
     
     private bool _isDead = false;
     private bool _isStart = false;
-    public menu_controller menuController;
+    public GameController menuController;
     private float[] bg_start_pos = { 9f, 32.6f, 56.2f, 79.8f };
     
     // Start is called before the first frame update

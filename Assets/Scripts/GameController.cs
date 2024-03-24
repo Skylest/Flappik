@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class menu_controller : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public delegate void isDeadDelegate();
     public event isDeadDelegate isDeadEvent;
