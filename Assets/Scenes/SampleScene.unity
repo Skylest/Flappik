@@ -517,6 +517,11 @@ Transform:
   - {fileID: 1432118949}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &203666955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2711408889926514205, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
+  m_PrefabInstance: {fileID: 1087417030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &203666957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5792739288463907881, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
@@ -873,6 +878,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 528099606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &417612950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2711408889926514205, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
+  m_PrefabInstance: {fileID: 372442445102534282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &417612952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5792739288463907881, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
@@ -1239,8 +1249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc54969718e146c4e9982f857117d0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  recordText: {fileID: 0}
+  scoreText: {fileID: 2090533691}
+  recordText: {fileID: 130478133}
   gameController: {fileID: 1027501766}
 --- !u!4 &709838103
 Transform:
@@ -1770,6 +1780,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 528099606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1432118947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2711408889926514205, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
+  m_PrefabInstance: {fileID: 95582952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1432118949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5792739288463907881, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
@@ -1810,10 +1825,10 @@ MonoBehaviour:
   yMax: -4
   yMin: -7.5
   objects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 417612950}
+  - {fileID: 1610879082}
+  - {fileID: 203666955}
+  - {fileID: 1432118947}
   StartPos:
   - 11
   - 14
@@ -1835,6 +1850,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 588133696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1610879082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2711408889926514205, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
+  m_PrefabInstance: {fileID: 236075588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1610879084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5792739288463907881, guid: 7f0f65fffb1b87e4a81fd8dc13244319, type: 3}
@@ -1890,10 +1910,10 @@ MonoBehaviour:
   yMax: -0.92
   yMin: -0.92
   objects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 506943816}
+  - {fileID: 1347141859}
+  - {fileID: 329745832}
+  - {fileID: 667655563}
   StartPos:
   - 9
   - 32.6
@@ -2530,9 +2550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa31962f2deb07e41a16296fc3100819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOn: {fileID: 0}
-  spriteOff: {fileID: 0}
-  buttonImage: {fileID: 0}
+  spriteOn: {fileID: 21300000, guid: d6a2a86901e00094ba37083239f87eab, type: 3}
+  spriteOff: {fileID: 21300000, guid: 859e30f1255744d47a5b0e0e69adc316, type: 3}
+  buttonImage: {fileID: 1918550434}
 --- !u!1 &2090533686
 GameObject:
   m_ObjectHideFlags: 0
