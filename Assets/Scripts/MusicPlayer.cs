@@ -1,38 +1,68 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+/// <summary>
+/// Класс реализовывающий управление звуком в игре
+/// </summary>
 public class MusicPlayer : MonoBehaviour
 {
-    private int is_mus_play = 1;
+    /// <summary>
+    /// Спрайты состояния кнопки
+    /// </summary>
+    [SerializeField] private Sprite spriteOn, spriteOff;
+
+    /// <summary>
+    /// Ссылка на кнопку "звука"
+    /// </summary>
+    [SerializeField] private Image buttonImage;
+
+    /// <summary>
+    /// Флаг включен ли звук
+    /// </summary>
+    private int isMusPlay = 1;
+
+    private AudioSource audioSource;    
 
     // Start is called before the first frame update
     void Start()
     {
-        is_mus_play = PlayerPrefs.GetInt("Mus_play", 1);
-        if (is_mus_play == 1)
+        audioSource = GetComponent<AudioSource>();
+
+        isMusPlay = PlayerPrefs.GetInt("MusicSetting", 1);
+
+        if (isMusPlay == 1)
         {
-            GetComponent<AudioSource>().mute = false;
+            audioSource.mute = false;
+            buttonImage.sprite = spriteOn;
         }
         else
         {
-            GetComponent<AudioSource>().mute = true;
+            audioSource.mute = true;
+            buttonImage.sprite = spriteOff;
         }
     }
 
+    /// <summary>
+    /// Поставить на паузу или возобновить проигрываение музыки и звуков
+    /// </summary>
     public void PlayPause()
     {
-        if (is_mus_play == 1)
+        if (isMusPlay == 1)
         {
-            is_mus_play = 0;
-            PlayerPrefs.SetInt("Mus_play", 0);
-            GetComponent<AudioSource>().mute = true;
+            isMusPlay = 0;
+            PlayerPrefs.SetInt("MusicSetting", 0);
+            audioSource.mute = true;
+            audioSource.Pause();
+            buttonImage.sprite = spriteOff;
+
         }
         else
         {
-            is_mus_play = 1;
-            PlayerPrefs.SetInt("Mus_play", 1);
-            GetComponent<AudioSource>().mute = false;
+            isMusPlay = 1;
+            PlayerPrefs.SetInt("MusicSetting", 1);
+            audioSource.mute = false;
+            audioSource.UnPause();
+            buttonImage.sprite = spriteOn;
         }
     }
 }

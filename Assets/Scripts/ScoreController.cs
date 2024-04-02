@@ -1,45 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>
+/// Класс управляющий подсчетом очков и их визуализацией и сохранением
+/// </summary>
 public class ScoreController : MonoBehaviour
 {
-    [SerializeField]
-    private Text score, record;
+    /// <summary>
+    /// Ссылка на текстовые объект
+    /// </summary>
+    [SerializeField] private TextMeshProUGUI scoreText, recordText;
 
-    private string text_score_base = "Score: ", text_record_base = "Record: ";
-    private int score_cnt = 0;
-    public GameController menuController;
-    private int record_saved = 0;
+    /// <summary>
+    /// Ссылка на контроллер игры
+    /// </summary>
+    [SerializeField] private GameController gameController;
 
-    void Start()
+    /// <summary>
+    /// Константа текста
+    /// </summary>
+    private const string TextScoreBase = "Score: ", TextRecordBase = "Record: ";
+    
+    /// <summary>
+    /// Счетчик
+    /// </summary>
+    private int scoreCounter = 0, recordSaved = 0;
+
+    private void Start()
     {
-        menuController.isDeadEvent += isDeadTriger;
-        menuController.restartEvent += Restart;
-        record_saved = PlayerPrefs.GetInt("record_saved", 0);
-        record.text = text_record_base + record_saved;
+        gameController.OnDead += Dead;
+        gameController.OnRestart += Restart;
+
+        recordSaved = PlayerPrefs.GetInt("recordSaved", 0);
+        recordText.text = TextRecordBase + recordSaved;
     }
 
-    private void Restart()
+    /// <summary>
+    /// Перезапуск игры
+    /// </summary>
+    public void Restart()
     {
-        score_cnt = 0;
-        score.text = text_score_base + score_cnt;
+        scoreCounter = 0;
+        scoreText.text = TextScoreBase + scoreCounter;
     }
 
-    public void isDeadTriger()
+    /// <summary>
+    /// Проиграш
+    /// </summary>
+    public void Dead()
     {
-        record_saved = PlayerPrefs.GetInt("record_saved", 0);
-        if (score_cnt > record_saved)
+        recordSaved = PlayerPrefs.GetInt("recordSaved", 0);
+        
+        if (scoreCounter > recordSaved)
         {
-            PlayerPrefs.SetInt("record_saved", score_cnt);
-            record.text = text_record_base + score_cnt;
+            PlayerPrefs.SetInt("recordSaved", scoreCounter);
+            recordText.text = TextRecordBase + scoreCounter;
         }
     }
 
-    public void score_Inc()
+    /// <summary>
+    /// Добавление счета
+    /// </summary>
+    public void AddScore()
     {
-        score_cnt++;
-        score.text = text_score_base + score_cnt;
+        scoreCounter++;
+        scoreText.text = TextScoreBase + scoreCounter;
     }
 }

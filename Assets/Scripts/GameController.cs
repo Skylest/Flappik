@@ -1,79 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>
+///  ласс управл€ющий основными состо€ни€ми игры и их визуализацией
+/// </summary>
 public class GameController : MonoBehaviour
-{
-    public delegate void isDeadDelegate();
-    public event isDeadDelegate isDeadEvent;
+{ 
+    // —сылка на CanvasGroup всех текстов в игре
+    [SerializeField] private CanvasGroup textStart, textScore, textRestart, textRecord;
 
-    public delegate void restartDelegate();
-    public event restartDelegate restartEvent;
+    /// <summary>
+    /// »вент смерти (проиграша)
+    /// </summary>
+    public event Action OnDead;
 
-    public delegate void startDelegate();
-    public event startDelegate startEvent;
+    /// <summary>
+    /// »вент рестарта игры
+    /// </summary>
+    public event Action OnRestart;
 
-    public Text text_start, text_score, text_restart, text_record;
-
-    private bool _isDead = false;
-    private bool _isStart = false;
-
-    public void isDead()
+    /// <summary>
+    /// —мерть птицы (проиграш)
+    /// </summary>
+    public void Dead()
     {
-        if (isDeadEvent != null)
-        {
-            isDeadEvent();
-            _isDead = true;
-            text_restart.GetComponent<CanvasGroup>().alpha = 1;
-        }
+        OnDead?.Invoke();
+        GlobalParams.isDead = true;
+        textRestart.alpha = 1;
     }
 
-    public void restart()
+    /// <summary>
+    /// –естарт игры
+    /// </summary>
+    public void RestartGame()
     {
-        if (restartEvent != null)
-        {
-            restartEvent();
-            _isDead = false;
-            text_restart.GetComponent<CanvasGroup>().alpha = 0;
-        }
+        OnRestart?.Invoke();
+        GlobalParams.isDead = false;
+        textRestart.alpha = 0;
     }
 
-    public void start()
+    /// <summary>
+    /// ѕервый старт игры
+    /// </summary>
+    public void StartGame()
     {
-        if (startEvent != null)
-        {
-            startEvent();
-            _isStart = true;
-            text_start.GetComponent<CanvasGroup>().alpha = 0;
-            text_score.GetComponent<CanvasGroup>().alpha = 1;
-            text_record.GetComponent<CanvasGroup>().alpha = 1;
-        }        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        GlobalParams.isStart = true;
+        textStart.alpha = 0;
+        textScore.alpha = 1;
+        textRecord.alpha = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_isDead)
-        {
+        if (GlobalParams.isDead)
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-            {
-                restart();
-            }
-        }
+                RestartGame();
 
-        if (!_isStart)
-        {
+        if (!GlobalParams.isStart)
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-            {
-                start();
-            }
-        }
+                StartGame();
     }
 }
